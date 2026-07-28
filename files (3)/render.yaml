@@ -1,0 +1,15 @@
+# Render Blueprint. Optional: lets you spin up this service with "New + > Blueprint"
+# instead of clicking through the manual Web Service setup. Either approach works.
+services:
+  - type: web
+    name: cozybot-app
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: NODE_VERSION
+        value: 20.11.1
